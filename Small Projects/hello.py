@@ -1,9 +1,5 @@
-spam = 0
-if spam == 10:
-    print('eggs')
-    if spam > 5:
-        print('bacon')
-    else:
-        print('ham')
-    print('spam')
-print('spammmm')
+import random
+
+names = ["John", "Harry"]
+names[0] = "Alex"
+print(names)
