@@ -1,0 +1,9 @@
+This program will roll a random number between 1 and 100.
+If the number hasn't been picked it's added to a list.
+If the number has been picked before, it's added to a duplicate list.
+The program runs until 20 unique random integers are selected and added to a list.
+
+The output of the program shows both the picked and duplicate lists.
+
+The first time I ran this program I rolled 77 3 times for 77 77 77.
+Lucky. 

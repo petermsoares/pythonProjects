@@ -1,0 +1,12 @@
+I've always wanted to make a turn-based game.
+
+With the limited knowledge I have I made a simple text-based program
+that allows a user to name 5 party members.
+
+The names are stored in a list and at the end the user can choose
+to change the names one at a time, or end the program.
+
+This took me over an hour to figure out, but I had a lot of fun making it.
+I had a little trouble getting the indexing right because what the user
+sees as position #1 is actually position #0, but I figured it out and
+felt accomplished. 
