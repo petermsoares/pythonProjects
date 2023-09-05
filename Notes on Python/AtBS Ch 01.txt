@@ -1,0 +1,70 @@
+Automate the Boring Stuff
+Notes for Chapter 1
+Peter Soares, 2023-09-05
+**************************************
+Question: What order do mathematical operations follow in Python?
+
+Answer: The order of operations of Python are the same as those in math. Parentheses, exponents, multiplication, division, addition, and subtraction.
+**************************************
+Question: What does the Modulus operator do and how can it be useful?
+
+Answer: The modulus operator will show what the remainder value of a division operation is. We can use the modulus operator in order to show if a number is even or odd. Any number divided by 2 with the modulus operator will result in an integer value of 0. Else, the remainder will be 1, which indicates the number is not an even number and is instead an odd number. 
+
+The modulus operator is helpful for doing even/odd problems or problems like fizzbuzz.
+**************************************
+Question: Why can't you print to the console print("Alexander is " + 5)?
+
+Answer: Because the print function is meant to only handle like types. You can add 5 + 5 in the print function and it will output 10. You can concatinate (add) two strings together like print("Alex " + "Johnson") which will output Alex Johnson. But you cannot combine different types of variables.
+
+For example: "Alexander is " + 5 is really saying: string + int. This isn't allowed in Python, but some languages might force a conversion of the 5 into a string so that the program outputs something and doesn't crash.
+**************************************
+Question: What are the three main considerations of a variable declaration?
+
+[1] What the variable name is?
+[2] What type the variable is?
+[3] What kind of value the variable contains?
+
+myName = "Bob Ross" has the variable name of myName, is of the type of STR, and holds a string value of Bob Ross.
+
+myAge = 55 has the variable name of myAge, is of the type of INT, and holds an integer value of 45.
+**************************************
+Question: What is the purpose of a comment in Python and what is its relationship to code?
+
+Answer: A comment in Python helps us explain what our code is supposed to do step by step. The code explains the comments we make to the computer. As a beginner, make sure to understand on a granular level how your programs are made down to each individual instruction. If you can write out a solution to a problem in normal English, and assuming it's right and without bugs, then the coding bit comes much easier. 
+**************************************
+Question: How can our code communicate information to a user?
+
+Answer: By using the print() function to display text on the screen. It's not important to memorize the print function's syntax--just know what it can do. JavaScript uses console.log() in order to print text to the console, and the syntax will change based on the language. Do not get caught up in the syntax, just remember that programs have the ability to "print out" characters on the screen.
+**************************************
+Question: What is a basic way a program can take a user's input, such as a string of characters or some numbers?
+
+Answer: By using the input() function. Most languages have a similar way of taking information from a user.
+
+What generally happens is you create a variable in Python and assign that variable to the input() function. When Python reads this line, it's going to trigger the input() function which will prompt the user for information. Once the user gives that information, it will be stored in the variable as a string.
+
+myName = input("What is your name? ")
+Note, the "What is your name? " is a string message we show the user, but it isn't stored in the variable alongside any information the user gives us.
+**************************************
+Question: What must we do to numbers that we get from the user by using the input function?
+
+Answer: We have to convert those inputs into integers. Remember, an input received and assigned to a variable will default to a string. So we need to make sure that we're converting that string to a number if we're going to be using the number to calculate anything.
+**************************************
+Question: What does the length function do?
+
+Answer: The length function, or len(), in Python allows us to see how many characters a string has. Note that the count begins at the number 1 instead of the number 0.
+
+If you try to get the length of a number, such as 54321, the length function will not work because Python doesn't consider numbers to have lengths. Instead, you need to convert the number into a string and then run the length function. 
+**************************************
+Question: Generally, can we convert the types of values within variables into different types?
+
+Answer: As long as doing so is legally valid in the programming language. For example, you can convert an int of 54321 to the str of "54321". But you can't convert the str "Peter" to the int Peter. 
+**************************************
+Question: What is the == operator checking for in Python?
+
+Answer: This is used for comparison to check whether two variables are equal in terms of type and in terms of value.
+
+ie: 42 == 42 will evaluate to True because each integer has the same type (int) and value (42).
+
+ie: 42 == 24 will evaluate to False because each integer has a different value.
+
+ie: 42 = "42" will evaluate to False because an int and a string are different types.
