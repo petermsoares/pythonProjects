@@ -1,3 +1,5 @@
+# Coding out while loop example based on Andy Harris lecture.
+
 # Let's write a program that checks to see if a password is correct. The user will have 3 attempts. If the user guesses correct, they're let into the system. If the user guess is incorrect, they are blocked.
 
 
