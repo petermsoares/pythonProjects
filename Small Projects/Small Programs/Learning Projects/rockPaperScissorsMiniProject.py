@@ -1,101 +1,72 @@
+# Rock Paper Scissors game against computer, best of 5 or first to 3.
+
 import random
 import sys
 
-# Note, at this point I don't know about arrays and a lot of other helpful things, so most of this is hard coded.
+cpuWins = 0
+playerWins = 0
 
-# Game variables to keep track of w,l,t and choices
-gameStatus = True
-wins = 0
-losses = 0
-draws = 0
-computerChoice = 0
-playerChoice = ""
+print("Select a choice to play against computer. Press 9 to exit.")
 
-# Pre-Game text before game starts
-print("*****")
-print("ROCK, PAPER, SCISSORS")
-print("*****")
+goAhead = True
+while (goAhead):
 
-while gameStatus == True:
-    print("Current Score: " + str(wins) + " Wins, " + str(losses) +
-          " Losses, " + str(draws) + " Draws")
-    print("* Player, select (r)ock, (p)aper, or (s)cissors. Press (q) to quit.")
+    # Computer picks a number 1 2 or 3 for R, P, S.
+    cpuChoice = random.randint(1, 3)
+    # Player picks a number.
+    playerChoice = int(input("Pick [1] Rock, [2] Paper, or [3] Scissors: "))
 
-    computerChoice = random.randint(1, 3)
-    playerChoice = input()
+    if playerChoice == 9:
+        sys.exit()  # Closes program.
 
-    # Checks to see if player makes a valid choice.
-    # If valid, game begins.
-    # If invalid, else condition triggers prompting a valid choice.
-    if playerChoice == "r" or "p" or "s" or "q":
+    # Program tells player which option he picked.
+    if playerChoice == 1:
+        print("Player Choice is Rock")
+    elif playerChoice == 2:
+        print("Player Choice is Paper")
+    elif playerChoice == 3:
+        print("Player Choice is Scissors")
+    elif playerChoice != 9:  # invalid choice will restart current loop.
+        print("You made an invalid selection, please select from the options below:")
+        continue
 
-        # Logic of comparing player and computer choices is below.
-        # Player input dictates game flow.
-        if playerChoice == "q":
-            print("The game has ended")
-            print("*****")
-            break
+    # Program tells player which option CPU picked.
+    if cpuChoice == 1:
+        print("CPU Choice is Rock")
+    elif cpuChoice == 2:
+        print("CPU Choice is Paper")
+    elif cpuChoice == 3:
+        print("CPU Choice is Scissors")
 
-        if playerChoice == "r":
-            if computerChoice == 1:
-                draws = draws + 1
-                print("Player: R, CPU: R. Result: DRAW")
-                print("*****")
-                continue
-            elif computerChoice == 2:
-                losses = losses + 1
-                print("Player: R, CPU: P. Result: LOSS")
-                print("*****")
-                continue
-            elif computerChoice == 3:
-                wins = wins + 1
-                print("Player: R, CPU: S. Result: WIN")
-                print("*****")
-                continue
+    # Program then compares player choice to cpu choice.
+    if playerChoice == cpuChoice:  # if draw, then nothing.
+        print("DRAW")
+    elif playerChoice == 1 and cpuChoice == 2:  # R v P
+        print("CPU wins")
+        cpuWins = cpuWins + 1
+    elif playerChoice == 1 and cpuChoice == 3:  # R v S
+        print("Player wins")
+        playerWins = playerWins + 1
+    elif playerChoice == 2 and cpuChoice == 1:  # P v R
+        print("Player wins")
+        playerWins = playerWins + 1
+    elif playerChoice == 2 and cpuChoice == 3:  # P v S
+        print("CPU wins")
+        cpuWins = cpuWins + 1
+    elif playerChoice == 3 and cpuChoice == 1:  # S v R
+        print("CPU wins")
+        cpuWins = cpuWins + 1
+    elif playerChoice == 3 and cpuChoice == 2:  # S v P
+        print("Player wins")
+        playerWins = playerWins + 1
 
-        if playerChoice == "p":
-            if computerChoice == 1:
-                wins = wins + 1
-                print("Player: P, CPU: R. Result: WIN")
-                print("*****")
-                continue
-            elif computerChoice == 2:
-                draws = draws + 1
-                print("Player: P, CPU: P. Result: DRAW")
-                print("*****")
-                continue
-            elif computerChoice == 3:
-                losses = losses + 1
-                print("Player: P, CPU: S. Result: LOSS")
-                print("*****")
-                continue
+    # Program tells player what current score is.
+    print("Current score is PLAYER:", playerWins, "COMPUTER:", cpuWins)
 
-        if playerChoice == "s":
-            if computerChoice == 1:
-                losses = losses + 1
-                print("Player: S, CPU: R. Result: LOSS")
-                print("*****")
-                continue
-            elif computerChoice == 2:
-                wins = wins + 1
-                print("Player: S, CPU: P. Result: WIN")
-                print("*****")
-                continue
-            elif computerChoice == 3:
-                draws = draws + 1
-                print("Player: S, CPU: S. Result: DRAW")
-                print("*****")
-                continue
-        # Prompts user to input a valid conidtion for the game.
-        else:
-            print("Player, please pick a valid choice of R, P, S, or Q.")
-            print("*****")
-            continue
-
-# End game text once game has exited
-print("*****")
-print("*****")
-print("*****")
-print("Thanks for playing! Final Scores are:")
-print(str(wins) + " Wins, " + str(losses) +
-      " Losses, " + str(draws) + " Draws")
+    # Program checks to see if either player has 3/5 wins. If so, ends loop.
+    if playerWins >= 3:
+        print("Player has won. Games won out of 5:", playerWins)
+        goAhead = False
+    elif cpuWins >= 3:
+        print("CPU has won. Games won", cpuWins)
+        goAhead = False

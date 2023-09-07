@@ -1,28 +1,29 @@
-# Coding out while loop example based on Andy Harris lecture.
+# Make a program that checks a user's password input to see if it is correct.
+# If the user guesses the correct password, he is let into the system.
+# If the user guesses incorrectly 3 times, he is locked out of the system.
 
-# Let's write a program that checks to see if a password is correct. The user will have 3 attempts. If the user guesses correct, they're let into the system. If the user guess is incorrect, they are blocked.
+# Below are variables for the password and the counter we will use to keep track of user input attempts:
+userPassword = "Jackie Chan"
+attemptCounter = 0
 
-
-password = "Darrow"  # creating password variable.
-attempt = 0  # variable for attempts within loop.
-
-goAhead = True  # variable for condition in while loop.
+# Below are the while loop and a boolean variable to control the loop.
+# The loop has two conditions that will make it close. Either a correct password OR 3 failed guesses.
+goAhead = True
 while (goAhead):
+    # Increment the counter by 1 for each loop.
+    attemptCounter = attemptCounter + 1
 
-    attempt = attempt + 1  # counter for the loop.
-    print("You are on attempt #", attempt, "of 3")
-
-    # get a password from user and assign it to guess.
-    guess = input("What is your password? ")
-
-    # if guess is the right password, we let the user in and set the while loop's condition to false so we can exit the loop.
-    if guess == password:
-        print("That is the correct password. You may enter.")
+    # Message to greet user and show attempts.
+    print("Hi, please enter your password below. This is attempt #",
+          attemptCounter, "of 3")
+    # Capture the input from user and assign it to a variable.
+    userGuess = input("Password: ")
+    # Compare the user's guess to the correct password. If correct, he enters.
+    if userGuess == userPassword:
+        print("This is the correct password. You may enter the system")
         goAhead = False
-
-    # if the guess is not the password and the counter is at least 3, then we let the user know they've entered too many attempts and set the condition of the loop to false so that we exit.
-    elif attempt >= 3:
-        print("Failed. You have made too many attempts. Now exiting")
+    # If user guessed wrong 3 times, we close him out.
+    # Placement of the counter check must be after password check or else on 3rd attempt user locks out even if password is right.
+    elif attemptCounter >= 3:
+        print("You have made too many attempts. Your account is locked for 10 minutes.")
         goAhead = False
-
-    # note: we need to use elif in this situation so that it alone is guaranteed to fire when we hit attempt number 3. If we use two if statements and if the user guesses the correct password on attempt #3, then the program will still show the message that the user failed.

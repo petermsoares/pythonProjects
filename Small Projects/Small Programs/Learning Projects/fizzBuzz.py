@@ -1,39 +1,28 @@
-count = 1
+# FizzBuzz While Loop Experiment.
+# count numbers from 1 through 100 (last number is 100)
+# if a number is divisible by 3, print Fizz.
+# if a number is divisible by 5, print Buzz.
+# if a number is divisible by both 3 and 5, print FizzBuzz.
+# Use modulus operator to get remainders to check division of 3 and 5.
 
-while count <= 50:
-    if count % 3 == 0 and count % 5 == 0:
-        print(str(count) + " Fizz Buzz")
-    elif count % 5 == 0:
-        print(str(count) + " Buzz")
-    elif count % 3 == 0:
-        print(str(count) + " Fizz")
-    else:
-        print(str(count))
-    count = count + 1
+# creating a variable called number to hold our counter. Assigning to 0.
+number = 0
 
-"""
-The trick with this is to trigger the
-conditions in the if statement only when
-a number is divisible by specific numbers.
+# Boolean variable used to control while loop
+goAhead = True
 
-First we run a test to see if the number is
-divisible by both numbers because if it is
-we want to execute code.
+while (goAhead):
 
-Then if it's not divisible by both, we check
-each one individually.
+    number = number + 1  # Counter for the loop.
 
-Understanding how to create a true condition
-is the trick here. We want to say that if
-the remainder of the current number is 0 when
-divided by a number (3 or 5 or both) then we
-run the clause.
+    if number % 3 == 0 and number % 5 == 0:  # if the F and B conditions are met, print FB
+        print("FizzBuzz")
+    elif number % 3 == 0:  # if the F condition alone is met, print F
+        print("Fizz")
+    elif number % 5 == 0:  # if the B condition alone is met, print B
+        print("Buzz")
+    else:  # if no condition is met, print the number based on the current count.
+        print(number)
 
-I made a mistake and set up my conditions
-to be if count % 3 and count % 5: then do
-the clause. This is wrong because we're just
-making expressions and not comparing them to
-anything. count % 3 gives us a remainder number,
-not a truth or false value. A clause is only
-going to execute when it sees a true value.
-"""
+    if number >= 100:  # if count is 100, turn off the loop.
+        goAhead = False
