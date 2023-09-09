@@ -1,0 +1,72 @@
+Automate the Boring Stuff
+Notes for Chapter 2
+Peter Soares, 2023-09-07
+**************************************
+Helpful information from Chapter 2:
+
+Think of the solution to a problem in terms of plain English and diagrams. Don't just jump into the code. If you can write out a simple answer with sentences and diagrams, you can code out the problem. But if you just jump into the coding part without thinking about the problem, you're going to get stuck.
+
+Remember, the code explains the comments to the computer. So make sure the comments are complete and make sense before you even touch the code.
+
+Boolean Values can be True or False. We can use these for different things, including controling the state of a while loop.
+
+Compairson operators can be used to build logical conditions in our programs. There are 6: ==, !=, <. <=, >, >=.
+Example:
+If number == 5:
+	print("your number is 5")
+else:
+	print("your number is not 5."
+	
+Remember that if, elif, else is read in order. If one condition is triggered, then the other conditions further in the sequence aren't checked. So if order matters in your if statements you must make sure that the order is properly reflected in your code.
+
+While Loops do things while a condition is true. Andy Harris uses a convention of making a boolean variable, setting it to true, and then using that variable as the condition of the loop's execution.
+Example:
+goAhead = True
+while(goAhead):
+	do stuff
+	if condition is met:
+		goAhead = False #This will turn off the loop.
+
+I really like the idea of using a boolean variable to control the while loop instead of trying to make a condition the basis of the while loop's execution. Sometimes there might be multiple conditions that can be satisfied and cause the loop to terminate, so making logic for those individual conditions in the loop itself is much easier than trying to put all the conditions in the beginning of the loop. 
+
+Two statements that help in while loops are break and continue. Because of the convention listed above, a break statement isn't needed because once a condition is met we can just turn off the loop. But a continue statement might still be useful. IE: if a user can input a variety of characters and they enter in a disallowed character, you can make a condition in the loop that checks for the lack of allowable characters and if one is present you can tell the user "hey, use legal inputs as described above" and then throw in a continue statement to make the loop run again. It's kind of like error catching.
+
+Truthy and Falsey values are considered true or false based on the value (or lack of value) they contain. Ie: a variable set to 0, or 0.0 will be False. An empty string "" will also be false.
+
+The range method can be used with the for loop in order to specify the start, end, and step of a for loop. for n in range(1, 10, 1). The counter will start on 1, but will end on 9 because the range is upto, but not including, the number 10. If we wanted to count numbers 1 through 10, we'd have to set up the range to be 1, 11, 1 like this:
+
+for n in range(1, 11, 1):
+    print("The current count is", n)
+
+By default, if you only put 1 number in the range function, the loop will cycle that number of times and step the variable of the loop by 1. But remember that the default count will start at 0, not 1.
+
+You can import modules at the beginning of your code by using the import keyword. Ie: import random. You can then call methods from the module by specifying the module name and then the method name after a period. 
+
+For example, generating a random number:
+
+import random #imports the random module
+print(random.randint(1, 10)) #prints and int between 1 and 10, inclusive.
+
+It's better to import a module instead of using from import Statements because the import keyword will force you to specify which module you're referencing when you call a specific method. 
+
+You can terminate a program by using the sys.exit() function, which is called from the sys module.
+
+Example:
+import sys
+print("Press 1 to show a message or 3 to exit")
+
+goAhead = True
+while (goAhead):
+
+    number = input()
+
+    if number == "1":
+        print("This is a message")
+        goAhead = False
+    elif number == "3":
+        sys.exit()
+    else:
+        print("You need to pick a 1 or a 3 only")
+
+print("This is the end of the program.")
+

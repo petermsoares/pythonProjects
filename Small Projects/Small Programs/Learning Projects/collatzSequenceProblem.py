@@ -1,60 +1,22 @@
-# Collatz Sequence Problem
-import time
-import sys
-
-userInput = ""
-
-
+# Collatz Sequence
 def collatz(number):
     if number % 2 == 0:
         print(number // 2)
         return number // 2
-    else:
-        print(3 * number + 1)
-        value = 3 * number + 1
-        return value
+    elif number % 2 == 1:
+        print(3 * number)
+        return 3 * number + 1
 
 
-def userInputFunction():
-    global userInput
-    print("Please enter a number below:")
-    userInput = int(input())
+goAhead = True
+while (goAhead):
 
-
-while True:
     try:
-        userInputFunction()
-        break
+        userNumber = int(input("Please input a number: "))
+        goAhead = False
     except:
-        print("You didn't enter a number.")
-        continue
+        print("Please enter a only numbers, not other characters.")
 
-try:
-    while True:
-        if userInput == 1:
-            break
-        else:
-            userInput = collatz(userInput)
-            """
-            This was tricky. I originally just
-            write out collatz(userInput) and
-            the program looped forever. Without
-            updating the userInput variable's
-            value, it just went on forever and
-            used the same input.
-
-            Also, I tried to add the global
-            keyword before the userInput variable
-            because I knew we had to save globally
-            but this was illegal because the global
-            variables are already referenced in
-            a loop. The global keywrod would have
-            been applicable if we were altering
-            the variable within a function.
-            """
-
-
-except KeyboardInterrupt:
-    sys.exit()
-
-print("Sequence complete")
+while (userNumber != 1):
+    userNumber = collatz(userNumber)
+print("End.")
