@@ -19,4 +19,5 @@ while (goAhead):
 
 while (userNumber != 1):
     userNumber = collatz(userNumber)
+
 print("End.")
