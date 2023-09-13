@@ -1,0 +1,19 @@
+import random
+pets = ["Dog", "Cat", "Elephant"]
+
+"""
+cpuPick = random.choice(pets)
+print(cpuPick)
+"""
+# Let's try to make the random.choice() funciton step by step.
+
+
+def aRandomChoice(yourList):
+    # offest by 1 because length counts from 1 and not 0.
+    listLength = len(yourList) - 1
+    # CPU picks an index from the list.
+    randomChoice = yourList[random.randint(0, listLength)]
+    return randomChoice  # return the CPU's selection from the list.
+
+
+print(aRandomChoice(pets))  # has same effect as random.choice()
