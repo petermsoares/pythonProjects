@@ -3,10 +3,13 @@
 
 import random
 
-people = ["Alexander", "Ben", "Charlie", "Peter", "Jim"]  # starting list.
-newList = [""] * len(people)  # new list where we store shuffled values
+people = ["Alexander", "Ben", "Charlie",
+          "Peter", "Jim", "Darrow", "Sevro", "Victra"]
+# assigns the length of the people List to a variable so it doesn't change while we loop.
+listLength = len(people)
+newList = [""] * listLength  # new list where we store shuffled values
 
-randomPosition = 0  # used to find potential empty string positions.
+randomNumber = 0
 index = 0  # used to cycle through loop and reassign values of the people list.
 
 print("Original..:", people)  # prints the original list of people.
@@ -21,15 +24,17 @@ while (goAhead):
 
     randomPosition = randomNumberCall()  # Gets a random number.
 
-    # if that space is open on newList, then...
-    if newList[randomPosition] == "":
-        # assign the value of the people list to the position of newList based on the index value.
-        newList[randomPosition] = people[index]
-        # and then go to the next person by increasing index by one.
-        index = index + 1
+    # Pick a random number based on the length of the people List.
+    randomNumber = randomNumberCall()
+    # assign the random index value picked to our newList.
+    newList[index] = people[randomNumber]
+    # remove the index we wrote over to myList from the people List.
+    del people[randomNumber]
+    # Go to the next position on myList by increasing index by one.
+    index = index + 1
 
-    # if the index value is the length of the string, we've looked at everyone and can quit the loop.
-    if index == len(people):
+    # if the index value == length of people List, we have reassigned all the people and exit loop.
+    if index == listLength:
         goAhead = False
 
 # print out the new list with shuffled values.
