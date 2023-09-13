@@ -32,3 +32,5 @@ while (lookingForJohn):
         lookingForJohn = False
     # note, you have to check whether the cap is reached before checking the name.
     # this is because the index position starts at 0, but the len function starts counting at 1. So you'll be looking for an index that isn't there and you'll get an error.
+
+# The point of this project was to write out how I think the in and not in operators work for lists.
