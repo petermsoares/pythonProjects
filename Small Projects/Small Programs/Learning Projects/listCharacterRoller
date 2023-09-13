@@ -1,17 +1,21 @@
 import random
+# A bunch of character information
 charNamesF = ["Alexander", "Billy", "Charlie"]
 charNamesL = ["Lecos", "Fields", "Joust"]
 charClass = ["Knight", "Cleric", "Mage"]
 charInt = 0
 charSTR = 0
-userChoice = ""
-
 newCharacter = []
 
+userChoice = ""  # user choice for use in while loop
 
+
+# function that picks an index from a 3-part list
 def roll3(charInfo):
     info = charInfo[random.randint(0, 2)]
     return info
+
+# function that rolls the new character
 
 
 def rollCharacter():
@@ -20,22 +24,29 @@ def rollCharacter():
     newClass = roll3(charClass)
     newInt = random.randint(50, 100)
     newSTR = random.randint(50, 100)
-
+    # orders all the states into a list called character
     character = [newNameF, newNameL, newClass, newInt, newSTR]
-
+    # returns the character variable and assigns it to our newCharacter variable.
     return character
 
 
+# Instructs the user on what the program does.
 print("Select r to roll a new character or s to save character")
-pickingCharacter = True
+
+pickingCharacter = True  # creating a true state for the loop to run.
 while (pickingCharacter):
-    userChoice = input()
-    if userChoice == "r":
+    userChoice = input()  # get input from the user.
+    if userChoice == "r":  # if r, then roll a new character and show it to user.
         newCharacter = rollCharacter()
         print(newCharacter)
         print("To save this character, press s. To re roll, press r")
+    # != [] checks to make sure the user has made a character and isn't saving an empty list as a character.
     elif userChoice == "s" and newCharacter != []:
-        print("Your character has been saved. Now exiting.")
+        print("Your character has been saved.")
         pickingCharacter = False
     else:
+        # Error handling. If user enters not r or not s, they see this and the loop will cycle through again.
         print("You may have entered an incorrect option. Please pick r to roll a new character or s to save your character. You can only save a character once you've made one.")
+
+print("Your character's name is", newCharacter[0], newCharacter[1], "who is a",
+      newCharacter[2], "with an INT of", newCharacter[3], "and a STR of", newCharacter[4])
