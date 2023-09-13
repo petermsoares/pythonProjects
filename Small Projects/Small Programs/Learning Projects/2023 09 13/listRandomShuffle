@@ -1,10 +1,13 @@
+# Remaking the random.shuffle() function.
+# Take a list of n size, shuffle it to another list.
+
 import random
 
-people = ["Alexander", "Ben", "Charlie", "Peter", "Jim"]
-newList = [""] * len(people)  # create a new list with empty strings
+people = ["Alexander", "Ben", "Charlie", "Peter", "Jim"]  # starting list.
+newList = [""] * len(people)  # new list where we store shuffled values
 
-randomPosition = 0
-index = 0
+randomPosition = 0  # used to find potential empty string positions.
+index = 0  # used to cycle through loop and reassign values of the people list.
 
 print("Original..:", people)  # prints the original list of people.
 
