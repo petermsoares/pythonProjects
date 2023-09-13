@@ -12,7 +12,7 @@ index = 0  # used to cycle through loop and reassign values of the people list.
 print("Original..:", people)  # prints the original list of people.
 
 
-def randomNumberCall():  # picks a random index value on the list of people.
+def randomNumberCall():  # picks a random number between 0 and length of list.
     return random.randint(0, (len(people) - 1))
 
 
@@ -21,13 +21,16 @@ while (goAhead):
 
     randomPosition = randomNumberCall()  # Gets a random number.
 
-    if newList[randomPosition] == "":  # if the space is open
-        # assign that person to that open spot.
+    # if that space is open on newList, then...
+    if newList[randomPosition] == "":
+        # assign the value of the people list to the position of newList based on the index value.
         newList[randomPosition] = people[index]
-        index = index + 1  # and then go to the next person.
-        # If a space is filled, tell the user and move on. Comment out once program works.
+        # and then go to the next person by increasing index by one.
+        index = index + 1
 
+    # if the index value is the length of the string, we've looked at everyone and can quit the loop.
     if index == len(people):
         goAhead = False
 
+# print out the new list with shuffled values.
 print("Randomized:", newList)
