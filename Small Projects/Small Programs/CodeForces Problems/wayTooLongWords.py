@@ -1,16 +1,19 @@
+l = int(input())
+counter = 0
+cpuChoice = ""
 
-cfInput = int(input())  # get number of words to be entered from CF judge
+goAhead = True
+while (goAhead):
+    cpuChoice = input()
 
-for i in range(0, cfInput, 1):  # set for loop to run for input from judge
+    if len(cpuChoice) > 10:
+        fLetter = cpuChoice[0]
+        lLetter = cpuChoice[-1]
+        distance = str(len(cpuChoice) - 2)
+        print(fLetter + distance + lLetter)
+    else:
+        print(cpuChoice)
 
-    word = input()
-    if len(word) <= 10:  # if word <= 10, print word as normal
-        print(word)
-
-    else:  # if word is strictly greater than 10, do the following:
-        # get the total number of characters between first and last letter. Or, total minus 2. Remmeber to convert the number to a string for concatination.
-        wordLength = str(len(word)-2)
-        firstLetter = word[0]  # get first letter of string
-        lastLetter = word[-1]  # get last letter of string
-        # String concatination for answer.
-        print(firstLetter + wordLength + lastLetter)
+    counter = counter + 1
+    if counter == l:
+        goAhead = False

@@ -1,30 +1,27 @@
-import random
+codeInput = int(input())
 
-people = ["Alexander", "Ben", "Charlie", "Peter", "Jim"]
-newList = [""] * len(people)  # create a new list with empty strings
+sum = 0
 
-randomPosition = 0
-index = 0
+for i in range(codeInput):
+    fSolution = input()
+    problem = fSolution.count("1")
 
-print("Original..:", people)  # prints the original list of people.
+    if problem >= 2:
+        sum += 1
 
+print(sum)
 
-def randomNumberCall():  # picks a random index value on the list of people.
-    return random.randint(0, (len(people) - 1))
+"""
+I like this solution instead of hard coding
+possible winning solutions. If the team 
+gains another memeber and the condition
+upon which a problem can be solved is a
+3/4 majority vote, then all I need to do
+is adjust the if statement to be
+problem >= 3. 
 
+The original solution I had was to hard code
+out all the possible winning conditions, but
+this becomes inflexible for any future changes.
 
-goAhead = True
-while (goAhead):
-
-    randomPosition = randomNumberCall()  # Gets a random number.
-
-    if newList[randomPosition] == "":  # if the space is open
-        # assign that person to that open spot.
-        newList[randomPosition] = people[index]
-        index = index + 1  # and then go to the next person.
-        # If a space is filled, tell the user and move on. Comment out once program works.
-
-    if index == len(people):
-        goAhead = False
-
-print("Randomized:", newList)
+"""

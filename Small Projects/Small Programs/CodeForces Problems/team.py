@@ -1,15 +1,23 @@
-judgeInput = int(input())  # takes input from judge to specify number of loops.
-successfulProblems = 0  # sets number of output to 0.
-# possible winning combinations
-rightAnswers = ["1 1 0", "1 0 1", "0 1 1", "1 1 1"]
+codeInput = int(input())
+sum = 0
+for i in range(codeInput):
+    fSolution = input()
+    problem = fSolution.count("1")
+    if problem >= 2:
+        sum += 1
+print(sum)
 
-for i in range(0, judgeInput, 1):
-    problemSolve = input()  # takes input from judge and runs through loop.
-    if problemSolve in rightAnswers:  # if input is one of winning combinations move on
-        # add one to total winning combination count
-        successfulProblems = successfulProblems + 1
-    else:
-        continue
+"""
+I like this solution instead of hard coding
+possible winning solutions. If the team 
+gains another memeber and the condition
+upon which a problem can be solved is a
+3/4 majority vote, then all I need to do
+is adjust the if statement to be
+problem >= 3. 
 
-# print out the total number of winning combinations.
-print(successfulProblems)
+The original solution I had was to hard code
+out all the possible winning conditions, but
+this becomes inflexible for any future changes.
+
+"""
