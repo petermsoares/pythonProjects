@@ -1,1 +1,2 @@
-print(type(output))
+
+        print(bearB)
