@@ -35,7 +35,6 @@ for n in range(peopleOnLine):
 
     if listOfPeople[n] == "B" and listOfPeople[n+1] == "G":
         listOfPeople[n] = "g"
-
         listOfPeople[n+1] = "b"
 
 for n in range(peopleOnLine):
