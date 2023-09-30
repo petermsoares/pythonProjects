@@ -1,7 +1,6 @@
-# The idea behind this problem is as follows:
-# Get [1] the index value and [2] the int value of a number.
-# Turn the index value into a number.
-# Assign the index value to its corrosponding int value in a list.
+# This is a python comment.
+# I'd like it to look like normal font.
+
 
 # Example:
 # 2 3 4 1.
