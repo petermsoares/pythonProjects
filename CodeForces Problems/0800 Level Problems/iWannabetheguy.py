@@ -8,15 +8,19 @@
 
 # If we fail to locate a number, then we print the failure output. If we locate all the numbers we can print the success output.
 
-# I tried submitting this solution on codeforces, but the judge graded my output as incorrect on #27. I am not sure why because the sum of the two lists contain all the numbers needed to reach the last level. This solution does work for the problem.
+# I misread this problem initially. The first number of the input for each player denotes the number of floors they can solve. I was wondering why a number was appearing two times. For my solution I'm just going to delete the first number from the list and then loop through. This should be the correct answer.
 
 input1 = input()
 
 pX = input()
 pX = pX.split()
+del pX[0]
+#print(pX)
 
 pY = input()
 pY = pY.split()
+del pY[0]
+#print(pY)
 
 pXY = pX + pY # combine both lists of levels that can be solved.
 
